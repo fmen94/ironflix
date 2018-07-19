@@ -7,13 +7,20 @@ const userSchema = new Schema({
         type: Boolean,
         default: false
     },
+
+   comen: [
+    {
+        type: Schema.Types.ObjectId,
+         ref: 'Comentos'
+    }
+],
     username: {
         type: String,
         required:true
     },
     email: {
         type: String,
-        required:true
+        //required:true
     },
     photoURL: {
         type: String,

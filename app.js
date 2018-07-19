@@ -13,6 +13,7 @@ const MongoStore   = require('connect-mongo')(session);
 const passport = require('./helpers/passport');
 
 
+
 mongoose.Promise = Promise;
 mongoose
   .connect('mongodb://localhost/ironblog', {useMongoClient: true})
@@ -37,8 +38,7 @@ app.use(session({
   }),
 }));
 
-app.use(passport.initialize());
-app.use(passport.session());
+
 
 // Middleware Setup
 app.use(logger('dev'));
@@ -55,19 +55,21 @@ app.use(require('node-sass-middleware')({
 }));
       
 
+
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 
+app.use(passport.initialize());
+app.use(passport.session());
 
 
 // default value for title local
 app.locals.title = 'Express - Generated with IronGenerator';
 
 
-app.use(passport.initialize());
-app.use(passport.session());
+
 
 
 

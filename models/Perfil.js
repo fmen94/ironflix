@@ -11,13 +11,6 @@ const perfilSchema = new Schema({
        type: Schema.Types.ObjectId,
         ref: 'user'
     }],
-
-   comentos: [
-       {
-           type: Schema.Types.ObjectId,
-            ref: 'comentos'
-       }
-   ],
     timestamps:{
         createdAt: 'created_at',
         updatedAt: 'updated_at'

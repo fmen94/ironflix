@@ -3,12 +3,14 @@ const Schema = mongoose.Schema;
 const passportLocalMongoose = require('passport-local-mongoose');
 
 const comentariosSchema = new Schema({
+    idpelicula: String,
    user: 
        {
            type: Schema.Types.ObjectId,
-            ref: 'user',
-            childPath: "comentos"
+            ref: 'User',
+            childPath: 'comen'
        },
+    title: String,
     text:{
         type: String,
         required:true

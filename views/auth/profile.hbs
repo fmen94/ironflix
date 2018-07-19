@@ -1,1 +1,29 @@
-<h1>profile</h1>
+
+<div class="col-profile">
+<div class="hola">
+  <h1>Hola {{username}}!</h1>
+</div>
+  <div class="pro-card">
+<div class="card">
+  <img id="photo" class="card-img-top" src="{{photoURL}}" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">{{username}}</h5>
+    <p class="card-text">{{email}}</p>
+    <a href="/logout" class="btn btn-primary">Logout</a>
+    <form validate action=""></form>
+  </div>
+</div>
+</div>
+</div>
+<form id="form" action="/profile" method="post" enctype="multipart/form-data" style="display:none" >
+<input onchange="submitForm()" name="foto" id="file" style="display:none" type="file">
+</form>
+<script>
+document.getElementById('photo').addEventListener('click', function(){
+        document.getElementById('file').click();
+    });
+
+    function submitForm(e){
+       document.getElementById('form').submit();
+    } 
+</script>

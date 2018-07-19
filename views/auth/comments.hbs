@@ -1,0 +1,26 @@
+<div class="container">
+    <div class="column">
+ <h2>Your Movie Comments</h2>
+
+<img src="{{perfil.photoURL}}" alt="" class="img-com">
+<h2>{{perfil.username}}</h2>
+
+
+{{#each result}}
+<div class="card card-body mb-2">
+    
+
+ <h4>{{title}}</h4>
+ <p>{{text}}</p>
+ <a class="btn btn-dark btn-block mb-2" href="/comments/edit/{{id}}">Edit</a>
+ <form method="post" action="/comments/{{id}}?_method=DELETE">
+   <input type="hidden" name="_method" value="DELETE">
+   <input type="submit" class="btn btn-danger btn-block" value="Delete">
+ </form>
+</div>
+{{else}}
+<p>No Comment listed</p>
+
+{{/each}}
+</div>
+</div>
