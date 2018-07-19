@@ -16,7 +16,7 @@ const passport = require('./helpers/passport');
 
 mongoose.Promise = Promise;
 mongoose
-  .connect('mongodb://fmen:51712301@ds141641.mlab.com:41641/ironflix', {useMongoClient: true})
+  .connect('mongodb://bliss:bliss1@ds141641.mlab.com:41641/ironflix', {useMongoClient: true})
   .then(() => {
     console.log('Connected to Mongo!')
   }).catch(err => {
