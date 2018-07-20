@@ -87,7 +87,7 @@ body, html {
 
 /* INDEX CSS ------ */
 .container-index {
-  height: 500px;
+  height: 100%;
   width: 100%;
   background-image: url(../images/indexback.jpg);
   background-size: cover;
@@ -458,7 +458,7 @@ div a {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 65%;
+  width: 75%;
   text-align: center;
   background: url(https://i.pinimg.com/originals/4c/68/98/4c6898586fe5ef837e107e48d60bf01f.jpg);
   background-size: cover;
@@ -501,7 +501,7 @@ div a {
   margin-top: 30px;
   margin-left: 5%;
   width: 40%;
-  height: 50%;
+  height: 60%;
   padding: 10px;
   color: white;
   float: left;

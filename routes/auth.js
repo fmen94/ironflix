@@ -40,7 +40,7 @@ router.get('/signup', (req,res)=>{
 router.post('/signup',(req,res,next)=>{
     if(req.body.password !== req.body.password2){
         req.body.err = "Tu password no coincide"
-        res.rendirect('auth/signup', req.body)
+        res.render('auth/signup', req.body)
     }
     User.register(req.body, req.body.password)
     //console.log("se agrego a la bd")
@@ -88,7 +88,7 @@ router.get('/logout', (req,res,next)=>{
 router.get('/profile',isLoggedIn,(req,res,next)=>{
     User.findById(req.user._id)
     .then(us=>{
-        console.log(us)
+       // console.log(us)
         res.render ('auth/profile',us)
     })
     .catch(e =>{
@@ -99,13 +99,13 @@ router.get('/profile',isLoggedIn,(req,res,next)=>{
 
 router.post('/profile', isLoggedIn, uploadCloud.single('foto'), (req, res, next)=>{
     if(!req.file) redirect('/profile');
-    req.user.photoURL=req.file.url;
     req.body.photoURL=req.file.url;
-  //  User.findOneAndUpdate(req);
-    //console.log("url de la foto cambiado",req.user);
-    User.findOneAndUpdate(req.user._id, req.body, {new:true})
+    console.log(req.user._id)
+    User.findByIdAndUpdate(req.user._id, {photoURL: req.file.url}, {new:true})
     .then(user=>{
+        console.log(user)
         res.redirect('/profile')
+
     })
     .catch(e=>next(e))
  });
@@ -209,7 +209,7 @@ router.post('/details/:id',(req,res)=>{
 
 
 
-router.get('/comments',(req,res)=>{
+router.get('/comments',isLoggedIn,(req,res)=>{
     Coment.find({user:req.user._id},(e,result)=>{
         const perfil= req.user
         const ob={result,perfil}
